@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# Node
+node_modules/
+dist/
+build/
+.DS_Store
+
+# Data/Models (except synthetic data if needed for demo)
+backend/data/*.db
+!backend/data/synthetic_transactions.csv
+backend/data/*.joblib
+
+# IDE
+.vscode/
+.idea/
