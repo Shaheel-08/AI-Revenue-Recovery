@@ -24,14 +24,14 @@ def _auto_train_ml():
         if loaded:
             return
     if os.path.exists(csv_path):
-        print("\n🧠 Auto-training recovery predictor from synthetic data...")
+        print("\nAuto-training recovery predictor from synthetic data...")
         try:
             recovery_predictor.train(csv_path, settings.data_dir)
-            print("✅ ML model trained and saved.\n")
+            print("ML model trained and saved.\n")
         except Exception as e:
-            print(f"⚠ ML training failed (using heuristic fallback): {e}\n")
+            print(f"ML training failed (using heuristic fallback): {e}\n")
     else:
-        print("⚠ No synthetic data found — ML model using heuristic fallback.\n")
+        print("No synthetic data found -- ML model using heuristic fallback.\n")
 
 
 @asynccontextmanager

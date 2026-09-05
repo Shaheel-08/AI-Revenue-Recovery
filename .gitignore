@@ -13,9 +13,9 @@ build/
 .DS_Store
 
 # Data/Models (except synthetic data if needed for demo)
-backend/data/*.db
-!backend/data/synthetic_transactions.csv
-backend/data/*.joblib
+data/*.db
+!data/synthetic_transactions.csv
+data/*.joblib
 
 # IDE
 .vscode/

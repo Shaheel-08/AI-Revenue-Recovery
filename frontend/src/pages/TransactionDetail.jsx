@@ -109,7 +109,7 @@ export default function TransactionDetail() {
     );
   }
 
-  const bestAction = whatIf ? whatIf.find(w => w.is_recommended) : null;
+  const bestAction = whatIf?.candidates ? whatIf.candidates.find(w => w.is_recommended) : null;
   const isFailed = txn.status === 'failed';
 
   return (
@@ -212,7 +212,7 @@ export default function TransactionDetail() {
                   <div className="step-icon">{analysisStep >= 5 ? '✓' : '⚖'}</div>
                   <div className="step-content">
                     <div className="step-title">Candidate Strategies Evaluated</div>
-                    {whatIf && <div className="step-detail">{whatIf.length} actions ranked by net expected utility</div>}
+                    {whatIf?.candidates && <div className="step-detail">{whatIf.candidates.length} actions ranked by net expected utility</div>}
                   </div>
                 </div>
 
@@ -239,7 +239,7 @@ export default function TransactionDetail() {
                   </div>
 
                   <div style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)', marginBottom: '1.5rem', fontStyle: 'italic' }}>
-                    "{bestAction.explanation || `Highest net expected value. Probability: ${(bestAction.recovery_probability*100).toFixed(0)}%.`}"
+                    "{whatIf.decision_explanation || `Highest net expected value. Probability: ${(bestAction.recovery_probability*100).toFixed(0)}%.`}"
                   </div>
 
                   {!execResult ? (
@@ -261,7 +261,7 @@ export default function TransactionDetail() {
             </div>
           )}
 
-          {whatIf && analysisStep === 6 && (
+          {whatIf?.candidates && analysisStep === 6 && (
             <div className="glass-card detail-section">
               <h3>📊 What-If Simulation</h3>
               <div className="table-container">
@@ -274,7 +274,7 @@ export default function TransactionDetail() {
                     </tr>
                   </thead>
                   <tbody>
-                    {whatIf.map((w, idx) => (
+                    {whatIf.candidates.map((w, idx) => (
                       <tr key={idx} style={{ background: w.is_recommended ? 'rgba(99, 102, 241, 0.1)' : 'transparent' }}>
                         <td style={{ textTransform: 'capitalize' }}>
                           {w.action_type.replace(/_/g, ' ')}

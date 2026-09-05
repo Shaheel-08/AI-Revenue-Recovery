@@ -80,14 +80,16 @@ export default function Settings() {
 
       <div className="settings-layout">
         <div className="settings-nav">
-          <div className="settings-nav-item active">Guardrails & Limits</div>
-          <div className="settings-nav-item">Channels & Communication</div>
-          <div className="settings-nav-item">Fraud & Risk</div>
+          <div className="settings-nav-item active">Recovery Policies</div>
+          <div className="settings-nav-item">Communication Limits</div>
+          <div className="settings-nav-item">System Safety Policies</div>
+          <div className="settings-nav-item">AI Model</div>
         </div>
 
         <div className="settings-section">
+          
           <div className="glass-card detail-section">
-            <h3>🛡 Auto-Recovery Guardrails</h3>
+            <h3>🛡 Recovery Policies</h3>
             
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-6)', marginTop: 'var(--space-4)' }}>
               <div className="form-group">
@@ -173,12 +175,26 @@ export default function Settings() {
             </div>
           </div>
           
-          <div style={{ marginTop: '1rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: 'var(--radius-md)', border: '1px solid rgba(239, 68, 68, 0.3)' }}>
-            <h4 style={{ color: 'var(--color-danger)', marginBottom: '0.5rem' }}>Suspicious Transactions</h4>
-            <p className="text-muted" style={{ fontSize: 'var(--font-size-sm)' }}>
-              Transactions identified as SUSPECTED_FRAUD by the ML failure classifier are strictly blocked from automated recovery at the framework level. This safety policy cannot be overridden by merchant settings.
-            </p>
+          <div className="glass-card detail-section" style={{ borderColor: 'var(--color-danger)' }}>
+            <h3 style={{ color: 'var(--color-danger)' }}>SYSTEM SAFETY POLICIES</h3>
+            <div style={{ marginTop: '1rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: 'var(--radius-md)', border: '1px solid rgba(239, 68, 68, 0.3)' }}>
+              <h4 style={{ color: 'var(--color-danger)', marginBottom: '0.5rem', display: 'flex', justifyContent: 'space-between' }}>
+                <span>SUSPICIOUS TRANSACTION PROTECTION</span>
+                <span className="badge" style={{ background: 'var(--color-danger)', color: '#fff' }}>ACTIVE</span>
+              </h4>
+              <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+                Transactions classified as <strong>SUSPECTED_FRAUD</strong> cannot be recovered automatically.
+              </p>
+              <div className="kv-list" style={{ marginTop: '1rem' }}>
+                <div className="kv-item"><span className="label">Locked by:</span><span className="value">SYSTEM SAFETY</span></div>
+                <div className="kv-item"><span className="label">Reason:</span><span className="value">Financial safety and fraud protection.</span></div>
+              </div>
+              <p className="text-muted" style={{ fontSize: 'var(--font-size-xs)', marginTop: '1rem', fontStyle: 'italic' }}>
+                * This setting cannot be overridden by merchant policy.
+              </p>
+            </div>
           </div>
+
         </div>
       </div>
     </div>

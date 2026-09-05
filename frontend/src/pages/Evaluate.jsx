@@ -18,19 +18,19 @@ export default function Evaluate() {
     setReport(null);
     setError(null);
     
-    setProgress('Preparing dataset (2000 synthetic transactions)...');
-    await new Promise(r => setTimeout(r, 1000));
+    setProgress('Preparing dataset (100 synthetic transactions)...');
+    await new Promise(r => setTimeout(r, 600));
     
     setProgress('Running Baseline Strategy (Fixed Retry 24h)...');
-    await new Promise(r => setTimeout(r, 1500));
+    await new Promise(r => setTimeout(r, 600));
     
     setProgress('Running RecoverOS Adaptive Policy...');
-    await new Promise(r => setTimeout(r, 1500));
+    await new Promise(r => setTimeout(r, 600));
     
     setProgress('Calculating incremental metrics...');
     
     try {
-      const data = await runBatchEvaluation({ transactionCount: 2000 });
+      const data = await runBatchEvaluation({ transactionCount: 100 });
       setReport(data);
     } catch (err) {
       setError(err.message);

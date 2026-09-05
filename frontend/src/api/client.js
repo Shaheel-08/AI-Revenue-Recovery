@@ -84,7 +84,7 @@ export function updatePolicy(config, merchantId = 1) {
 
 // ── Simulation / Batch Evaluation ──────────────────────────────────────
 
-export function runBatchEvaluation({ transactionCount = 2000, seed = 42 } = {}) {
+export function runBatchEvaluation({ transactionCount = 100, seed = 42 } = {}) {
   return request('/simulate/batch', {
     method: 'POST',
     body: JSON.stringify({ transaction_count: transactionCount, seed }),
